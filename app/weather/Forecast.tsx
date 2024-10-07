@@ -1,8 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { getForecastData } from '../api/getForecastData/route';
+import { getForecastData } from "../services/weather";
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { motion } from 'framer-motion'; // Import Framer Motion
+import { motion } from 'framer-motion';
 
 interface ForecastDataProps {
   location: string;
@@ -31,17 +31,15 @@ const Forecast = ({ location }: ForecastDataProps) => {
   return forecast ? (
     <div className="mt-4 text-center">
       <h1 className="text-2xl mb-6">3-day Forecast for {forecast.location.name}, {forecast.location.country}</h1>
-      
-      {/* Card container with responsive grid layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {forecast.forecast.forecastday.map((day: any, index: number) => (
           <motion.div
             key={day.date}
             className="p-4"
-            initial={{ opacity: 0, scale: 0.8 }} // Initial animation state
-            animate={{ opacity: 1, scale: 1 }} // Final animation state
-            transition={{ delay: index * 0.2, duration: 0.5 }} // Animation timing for each card
-            whileHover={{ scale: 1.05 }} // Hover animation for a 3D-like effect
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.2, duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
           >
             <Card className="bg-white/10 backdrop-blur-md shadow-xl rounded-lg">
               <CardHeader className="text-center">
