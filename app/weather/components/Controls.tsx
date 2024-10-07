@@ -48,7 +48,7 @@ const Controls = () => {
       style={{ backgroundImage: getBackgroundImage() }}
     >
       <h1 className="text-4xl font-bold text-white font-mono">Weatherlytic</h1>
-      <h1 className="text-xl font-bold text-lime-500 text-center font-sans">Enter your city's name to get weather, forecast and astronomy information</h1>
+      <h1 className="text-xl font-bold text-lime-500 text-center font-sans">Enter your city name to get weather, forecast and astronomy information</h1>
 
       <div className="relative w-full max-w-md">
         <input
