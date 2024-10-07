@@ -31,13 +31,13 @@ const Astronomy = ({ location }: AstronomyDataProps) => {
 
   return astronomy ? (
     <div className="mt-4">
-      <h1 className="text-2xl text-center mb-6">Astronomy Data for {astronomy.location.name}, {astronomy.location.country}</h1>
+      <h1 className="text-2xl text-center mb-6 text-white">Astronomy Data for {astronomy.location.name}, {astronomy.location.country}</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-8">
         <motion.div
           className="lg:col-span-1 space-y-4"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          // initial={{ opacity: 0, y: 50 }}
+          // animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <Card className="bg-white/10 backdrop-blur-md shadow-xl">
@@ -71,8 +71,8 @@ const Astronomy = ({ location }: AstronomyDataProps) => {
         </motion.div>
         <motion.div
           className="lg:col-span-2"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          // initial={{ opacity: 0, y: 50 }}
+          // animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
           <Card className="bg-white/10 backdrop-blur-md shadow-xl h-full">
@@ -93,8 +93,8 @@ const Astronomy = ({ location }: AstronomyDataProps) => {
         </motion.div>
         <motion.div
           className="lg:col-span-1 space-y-4"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          // initial={{ opacity: 0, y: 50 }}
+          // animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <Card className="bg-white/10 backdrop-blur-md shadow-xl">

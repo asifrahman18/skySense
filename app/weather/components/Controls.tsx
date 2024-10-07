@@ -1,3 +1,4 @@
+// Controls.tsx
 'use client';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
@@ -34,49 +35,53 @@ const Controls = () => {
     setError(null);
   };
 
+  const getBackgroundImage = () => {
+    if (dataType === 'current') return "url('/current.jpg')";
+    if (dataType === 'forecast') return "url('/forecast.jpg')";
+    if (dataType === 'astronomy') return "url('/astro.jpg')";
+    return "url('/default.jpg')";
+  };
+
   return (
-    <div className="min-h-screen px-6 py-10">
-      <h1 className="text-5xl font-bold text-center mb-8 font-mono text-blue-600">SkySense</h1>
-      <div className="flex flex-col items-center justify-start space-y-6">
-        <div className="relative w-full max-w-md">
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            placeholder="Enter location"
-            className="p-2 border border-gray-300 rounded-lg w-full bg-white"
-          />
-          {location && (
-            <button
-              onClick={clearInput}
-              className="absolute right-3 top-2"
-              aria-label="Clear input"
-            >
-              <X className="w-5 h-5 text-gray-500 hover:text-gray-700" />
-            </button>
-          )}
-        </div>
+    <div
+      className="flex flex-col items-center justify-start min-h-screen space-y-6 pt-10 bg-cover bg-center transition-all duration-300 ease-in-out"
+      style={{ backgroundImage: getBackgroundImage() }}
+    >
+      <h1 className="text-4xl font-bold text-white font-mono">Weatherlytic</h1>
+      <h1 className="text-xl font-bold text-lime-500 text-center font-sans">Enter your city's name to get weather, forecast and astronomy information</h1>
 
-        {error && <p className="text-red-500">{error}</p>}
-
-        <div className="flex flex-col lg:flex-row lg:space-x-4 space-y-2 lg:space-y-0">
-          <Button onClick={() => handleButtonClick('current')} className="w-full lg:w-auto">
-            Show Current Weather
-          </Button>
-          <Button onClick={() => handleButtonClick('forecast')} className="w-full lg:w-auto">
-            Show Forecast
-          </Button>
-          <Button onClick={() => handleButtonClick('astronomy')} className="w-full lg:w-auto">
-            Show Astronomy
-          </Button>
-        </div>
-
-        <div className="mt-6 w-full max-w-3xl">
-          {dataType === 'current' && searchLocation && <Current location={searchLocation} />}
-          {dataType === 'forecast' && searchLocation && <Forecast location={searchLocation} />}
-          {dataType === 'astronomy' && searchLocation && <Astronomy location={searchLocation} />}
-        </div>
+      <div className="relative w-full max-w-md">
+        <input
+          type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          placeholder="Enter location"
+          className="p-2 border border-gray-300 rounded-lg w-full bg-white"
+        />
+        {location && (
+          <button onClick={clearInput} className="absolute right-3 top-2" aria-label="Clear input">
+            <X className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+          </button>
+        )}
       </div>
+
+      {error && <p className="text-red-500">{error}</p>}
+
+      <div className="flex flex-col lg:flex-row lg:space-x-4 space-y-2 lg:space-y-0">
+        <Button onClick={() => handleButtonClick('current')} className="w-full lg:w-auto">
+          Show Current Weather
+        </Button>
+        <Button onClick={() => handleButtonClick('forecast')} className="w-full lg:w-auto">
+          Show Forecast
+        </Button>
+        <Button onClick={() => handleButtonClick('astronomy')} className="w-full lg:w-auto">
+          Show Astronomy
+        </Button>
+      </div>
+
+      {dataType === 'current' && searchLocation && <Current location={searchLocation} />}
+      {dataType === 'forecast' && searchLocation && <Forecast location={searchLocation} />}
+      {dataType === 'astronomy' && searchLocation && <Astronomy location={searchLocation} />}
     </div>
   );
 };

@@ -30,14 +30,14 @@ const Forecast = ({ location }: ForecastDataProps) => {
 
   return forecast ? (
     <div className="mt-4 text-center">
-      <h1 className="text-2xl mb-6">3-day Forecast for {forecast.location.name}, {forecast.location.country}</h1>
+      <h1 className="md:text-3xl mb-6 text-black bg-blue-50 rounded-xl font-bold p-2">3-day Forecast for {forecast.location.name}, {forecast.location.country}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {forecast.forecast.forecastday.map((day: any, index: number) => (
           <motion.div
             key={day.date}
             className="p-4"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            // initial={{ opacity: 0, scale: 0.8 }}
+            // animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
           >

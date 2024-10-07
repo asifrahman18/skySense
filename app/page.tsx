@@ -1,7 +1,7 @@
 import HomePage from "./HomePage";
 export default function Home() {
   return (
-    <main className="">
+    <main className="min-h-screen">
       <HomePage />
     </main>
   );
